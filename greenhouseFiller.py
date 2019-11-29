@@ -33,5 +33,7 @@ eeoc_divs = get_all_field_divs(soup_eeoc_field_div)
 
 
 
+
+
 #browser = webdriver.Chrome()
 #browser.get(url)
