@@ -1,15 +1,13 @@
 # configuration files that tells greenhouseFiller.py where to look for files, ect
 ---
-- person:
-    first_name: "Eric"
-    last_name: "Son"
-    email: "nuxeric@hotmail.com"
-    phone: "778-707-3742"
-    linkedIn: "https://www.linkedin.com/in/eric-sonn/"
-    website: "http://ericsonn.com/"
-
-- resume:
+person:
+  first_name: "Eric"
+  last_name: "Son"
+  email: "nuxeric@hotmail.com"
+  phone: "778-707-3742"
+  linkedIn: "https://www.linkedin.com/in/eric-sonn/"
+  website: "http://ericsonn.com/"
+  resume:
     path:
-
-- cover_letter:
+  cover_letter:
     path:
