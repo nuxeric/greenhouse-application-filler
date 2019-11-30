@@ -11,6 +11,11 @@ def get_form_with_id(id_name, soup_element):
     return soup_element.form.find(id=id_name)
 
 
+def fill_in_main_div(soup_elements, config_dict):
+    for soup_el in soup_elements:
+        soup_el.find(input)
+        print(soup_el.find(input))
+
 
 if len(sys.argv) != 2:
     print("To run this script you must give it a url")
@@ -18,9 +23,8 @@ if len(sys.argv) != 2:
 url = sys.argv[1]
 
 with open("person_config.yml", "r") as file:
-    data = yaml.load(file.read(), Loader=yaml.FullLoader)
-    print(data)
-    print(type(data))
+    person_dict = yaml.load(file.read(), Loader=yaml.FullLoader)
+
 
 
 r = requests.get(url)
@@ -38,6 +42,7 @@ soup_eeoc_field_div = get_form_with_id("eeoc_fields", soup_application)
 eeoc_divs = get_all_field_divs(soup_eeoc_field_div)
 
 
+fill_in_main_div(main_divs, person_dict)
 
 
 
