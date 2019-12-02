@@ -5,9 +5,9 @@ person:
   last_name: "Son"
   email: "nuxeric@hotmail.com"
   phone: "778-707-3742"
-  linkedIn: "https://www.linkedin.com/in/eric-sonn/"
-  website: "http://ericsonn.com/"
   resume:
     path:
   cover_letter:
     path:
+  linkedIn: "https://www.linkedin.com/in/eric-sonn/"
+  website: "http://ericsonn.com/"
