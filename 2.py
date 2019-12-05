@@ -1,6 +1,7 @@
 import sys
 from selenium import webdriver
 import yaml
+import time
 
 def webdriver_setup():
     options = webdriver.ChromeOptions()
@@ -27,30 +28,33 @@ def fill_in_first_information(list_of_fields):
         input_tag = field_div.find_element_by_tag_name("input")
         input_tag.send_keys(person_dict["person"][label_tag.get_attribute("for")])
 
+def upload_files(web_el):
+    # resume
+    web_el.find_elements_by_xpath('//input[@type="file"]')[0].send_keys("/Users/ericsonnyboy/Desktop/Projects/greenhouseFiller/greenhouse-application-filler/TestWordDocument.docx")
+    # cover letter
+    web_el.find_elements_by_xpath('//input[@type="file"]')[1].send_keys("/Users/ericsonnyboy/Desktop/Projects/greenhouseFiller/greenhouse-application-filler/TestWordDocument.docx")
+    # transcript
+    web_el.find_elements_by_xpath('//input[@type="file"]')[2].send_keys("/Users/ericsonnyboy/Desktop/Projects/greenhouseFiller/greenhouse-application-filler/TestWordDocument.docx")
+
 
 def fill_in_main_divs(web_el):
     list_of_fields = get_els_with_class(web_el, "field")
-
     fill_in_first_information(list_of_fields[:4])
-
-    # for field_div in list_of_fields:
-    #     label_tag = field_div.find_element_by_tag_name("label")
-    #     print(label_tag.get_attribute('for'))
-    #     print(label_tag.get_attribute('innerHTML'))
-    #     #print(field_div.get_attribute('outerHTML'))
-    #     #input_tag = field_div.find_element_by_tag_name("input")
 
 
 def main_function(driver, url):
     driver.get(url)
-    print(len(driver.find_elements_by_tag_name("body")))
+    print(driver.find_element_by_xpath('//input[@type="file"]').get_attribute('outerHTML'))
+    hell = driver.find_element_by_xpath('//input[@type="file"]/..')
+    print(hell.get_attribute('outerHTML'))
     application_div = get_el_with_id(driver.find_elements_by_tag_name("body")[0], "application")
     application_form = application_div.find_elements_by_tag_name('form')[0]
     main_div = get_el_with_id(application_form, "main_fields")
-    #print(main_div.get_attribute('outerHTML'))
     fill_in_main_divs(main_div)
+    upload_files(driver)
 
-    driver.close()
+
+
 
 if len(sys.argv) != 2:
     print("To run this script you must give it a url")
@@ -65,3 +69,5 @@ with open("person_config.yml", "r") as file:
 # must specify protocol to not get data; and you must pass in URL as a string
 
 main_function(driver, url)
+
+
