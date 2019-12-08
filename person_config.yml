@@ -10,11 +10,11 @@ person:
   cover_letter:
     path: TestWordDocument.docx
   education:
-    school_name: The University of British Columbia
+    school: University of British Columbia
     degree: Bachelor's Degree
     discipline: Computer Science
-    start_date:
-    end_date:
+    start date:
+    end date:
   transcript: TestWordDocument.docx
   linkedIn: "https://www.linkedin.com/in/eric-sonn/"
   website: "http://ericsonn.com/"
