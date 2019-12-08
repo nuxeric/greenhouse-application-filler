@@ -37,19 +37,22 @@ def upload_files(web_el):
     web_el.find_elements_by_xpath('//input[@type="file"]')[2].send_keys("/Users/ericsonnyboy/Desktop/Projects/greenhouseFiller/greenhouse-application-filler/TestWordDocument.docx")
 
 def fill_in_school_information(list_of_fields):
-
     for field_div in list_of_fields:
         label_tag = field_div.find_element_by_tag_name("label")
         label = label_tag.get_attribute("innerHTML").lower().strip()
         input_tags = field_div.find_elements_by_tag_name("input")
-        print(len(input_tags))
         input_tags[0].send_keys(person_dict["person"]["education"][label])
         time.sleep(2)
-        print(input_tags[1].get_attribute("outerHTML"))
-        print(input_tags[1].get_attribute("innerHTML"))
-        input_class = input_tags[1].get_attribute("class")
-        print(driver.find_element_by_class_name("select2-results").get_attribute('outerHTML'))
         driver.find_element_by_class_name("select2-match").click()
+
+def fill_in_school_dates(list_of_fields):
+    for field_div in list_of_fields:
+        legend = field_div.find_element_by_tag_name("label").get_attribute("innerHTML").lower().strip()
+        print(legend)
+        input_tags = field_div.find_elements_by_tag_name("input")
+        input_tags[0].send_keys(person_dict["person"]["education"][legend]["month"])
+        input_tags[1].send_keys(person_dict["person"]["education"][legend]["year"])
+
 
 
 def fill_in_main_divs(web_el):
@@ -57,7 +60,10 @@ def fill_in_main_divs(web_el):
     fill_in_first_information(list_of_fields[:4])
     # skip two here because of resume and cover letter
     fill_in_school_information(list_of_fields[6:9])
+    fill_in_school_dates(list_of_fields[9:])
 
+def check_out_required_boxes(driver):
+    pass
 
 def main_function(driver, url):
     driver.get(url)
@@ -69,6 +75,7 @@ def main_function(driver, url):
     main_div = get_el_with_id(application_form, "main_fields")
     fill_in_main_divs(main_div)
     upload_files(driver)
+    check_out_required_boxes(driver)
 
 
 
