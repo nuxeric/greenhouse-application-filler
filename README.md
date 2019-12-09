@@ -2,7 +2,7 @@
 A web scrapper that fills in your contact information, uploads files (resume, transcript, cover letter), and checks out the appropriate boxes for greenhouse.io job postings 
 
 ### Prerequisites
-Set up your python virtual env, and pip install the modules from rquirements.txt.
+Set up your python virtual env (tested on Python 3.7.4), and pip install the modules from requirements.txt.
 
 ### Usage: 
 Run the python script, passing in the url as a string like so:
