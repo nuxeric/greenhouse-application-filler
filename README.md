@@ -6,7 +6,8 @@ Set up your python virtual env, and pip install the modules from rquirements.txt
 
 ### Usage: 
 Run the python script, passing in the url as a string like so:
-``python greenhouseFiller.py "greenhouse_job_application_for_big_tech_company.com/whatever"```
+
+```python greenhouseFiller.py "greenhouse_job_application_for_big_tech_company.com/whatever"```
 
 
 ### Acknowledgments:
