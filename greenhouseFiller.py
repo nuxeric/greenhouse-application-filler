@@ -46,5 +46,5 @@ fill_in_main_div(main_divs, person_dict)
 
 
 
-#browser = webdriver.Chrome()
-#browser.get(url)
+browser = webdriver.Chrome()
+browser.get(url)

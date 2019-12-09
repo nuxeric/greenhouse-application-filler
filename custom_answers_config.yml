@@ -1,0 +1,5 @@
+# configuration file to help answer the "custom" questions of greenhouse's application
+---
+custom_answers:
+  how did you hear about this job?: "friend/classmate"
+  what is your graduation date?: "spring 2022"
